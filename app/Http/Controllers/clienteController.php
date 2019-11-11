@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\vendas;
+use App\Cliente;
 use Illuminate\Http\Request;
 
-class vendasControlle extends Controller
+class clienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class vendasControlle extends Controller
      */
     public function index()
     {
-        //
+        $listaClientes = Cliente::all();
+        return view('cliente', ['Cliente' => $listaClientes]);   
     }
 
     /**
@@ -41,21 +42,22 @@ class vendasControlle extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\vendas  $vendas
+     * @param  \App\clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function show(vendas $vendas)
+    public function show($id)
     {
-        //
+     $clientes = Cliente::find($id);
+     return view('clientes.show', ['clientes' => $clientes]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\vendas  $vendas
+     * @param  \App\clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function edit(vendas $vendas)
+    public function edit(clientes $clientes)
     {
         //
     }
@@ -64,10 +66,10 @@ class vendasControlle extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\vendas  $vendas
+     * @param  \App\clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, vendas $vendas)
+    public function update(Request $request, clientes $clientes)
     {
         //
     }
@@ -75,10 +77,10 @@ class vendasControlle extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\vendas  $vendas
+     * @param  \App\clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(vendas $vendas)
+    public function destroy(clientes $clientes)
     {
         //
     }
